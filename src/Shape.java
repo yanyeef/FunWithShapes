@@ -10,6 +10,9 @@ public class Shape {
   // public constants
   public static final String RECTANGLE = "Rectangle"; // constant for rectangle
   public static final String OVAL = "Oval";           // constant for oval
+  public static final String ARC = "Arc";
+  public static final String LINE = "Line";
+  public static final String STRINGS = "Strings";
 
   // private instance variables
   private Color color; // color to draw shape in
@@ -27,6 +30,12 @@ public class Shape {
     return color;
   }
 
+  public Point getP1(){
+    return p1;
+  }
+  public Point getP2(){
+    return p2;
+  }
   /**
    * Method to get minimum x value of the bounding rectangle
    * @return  the minimum x value of the two points that define the shape

@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.util.ArrayList;
 import javax.swing.JComponent;
+import java.util.Scanner;
 
 /**
  * Class ShapeIComponent:  holds shapes in a custom drawn area and handles the shape interface
@@ -18,6 +19,8 @@ public class ShapeIComponent extends JComponent {
   private String currShapeType; // default shape type
   private int width;
   private int height;
+  private Scanner scan;
+
   private Color backgroundColor;
   private Graphics backgroundG;   // graphics context of background image
 
@@ -31,8 +34,8 @@ public class ShapeIComponent extends JComponent {
     this.height = height;
     shapes = new ArrayList<Shape>();
     currShapeType = Shape.RECTANGLE;
-    backgroundColor = Color.YELLOW;
-    
+    backgroundColor = Color.BLUE;
+
     init();  // call helper method to do rest of setup
   }
 
@@ -143,6 +146,12 @@ public class ShapeIComponent extends JComponent {
         currentShape = new Rectangle();
       } else if (currShapeType.equals(Shape.OVAL)) {
         currentShape = new Oval();
+      } else if(currShapeType.equals(Shape.ARC)){
+        currentShape = new Arc();
+      } else if(currShapeType.equals(Shape.LINE)){
+        currentShape = new Line();
+      } else if(currShapeType.equals(Shape.STRINGS)){
+        currentShape = new Strings();
       }
       
       // set point 1 in the new shape
